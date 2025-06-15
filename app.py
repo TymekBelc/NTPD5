@@ -4,6 +4,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
+import os
 
 app = FastAPI()
 
@@ -43,5 +44,5 @@ def health_check():
 #zmienna środowiskowa
 @app.get("/config")
 def get_config():
-    api_key = os.getenv("API_KEY", "Brak zmiennej")
+    api_key = os.getenv("API_KEY", "Nie ustawiono")
     return {"api_key": api_key}
