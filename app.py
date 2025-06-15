@@ -40,3 +40,8 @@ def model_info():
 def health_check():
     return {"status": "ok"}
 
+#zmienna środowiskowa
+@app.get("/config")
+def get_config():
+    api_key = os.getenv("API_KEY", "Brak zmiennej")
+    return {"api_key": api_key}
